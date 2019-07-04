@@ -1,0 +1,180 @@
+.divider_line2 i,.divider_line3 .line_text {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.divider_line {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.divider_line .divider_inner {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-top: 0!important;
+    border-left: 0!important;
+    border-right: 0!important;
+}
+
+.divider_line2 {
+    height: 1px;
+    position: relative;
+}
+
+.divider_line2 i {
+    color: #fff;
+    width: 27px;
+    height: 27px;
+    border-radius: 100%;
+    background-color: #d3d3d3;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 27px;
+    position: absolute;
+}
+
+.divider_line3 {
+    position: relative;
+}
+
+.divider_line3 .line_text {
+    text-transform: uppercase;
+    background: #fff;
+    padding: 0 10px;
+    position: absolute;
+}
+
+.crumina-grid .owl-theme .owl-controls .owl-buttons div {
+    padding: 10px 20px;
+    font-size: 12px;
+    transition: all .3s ease;
+}
+
+.crumina-grid .owl-theme.owl-nav-arrow .owl-controls .owl-buttons div {
+    background-color: transparent;
+}
+
+.crumina-grid .owl-nav-round.owl-theme .owl-controls .owl-buttons div {
+    background-color: transparent;
+}
+
+.owl-carousel .owl-item {
+    text-align: center;
+}
+
+.owl-nav-arrow.owl-theme .owl-controls .owl-buttons div {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 50px;
+    margin-top: -25px;
+    background: transparent;
+    opacity: 0;
+    left: 50px;
+    color: transparent;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 9;
+}
+
+.owl-nav-arrow.owl-theme .owl-controls .owl-buttons .owl-next {
+    right: 50px;
+    left: initial;
+}
+
+.owl-nav-arrow.owl-theme .owl-controls .owl-buttons div:before {
+    content: "\e605";
+    color: #999;
+    transition: all 0.6s ease;
+    font-family: 'simple-line-icons';
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 100;
+}
+
+.owl-nav-arrow.owl-theme .owl-controls .owl-buttons .owl-next:before {
+    content: "\e606";
+}
+
+.owl-nav-arrow.owl-theme:hover .owl-controls .owl-buttons div {
+    opacity: 1;
+    left: 15px;
+}
+
+.owl-nav-arrow.owl-theme .owl-controls .owl-buttons div:hover:before {
+    color: #666;
+}
+
+.owl-nav-arrow.owl-theme:hover .owl-controls .owl-buttons div.owl-next {
+    right: 15px;
+    left: initial;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons div {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -25px;
+    background: #fafafa;
+    opacity: 0;
+    left: 50px;
+    color: transparent;
+    transition: all 0.3s ease;
+    padding: 0;
+    border: 1px solid #aaa;
+    border-radius: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons div:hover {
+    color: #fff;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons .owl-next {
+    right: 50px;
+    left: initial;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons div:before {
+    content: "\e605";
+    color: #999;
+    transition: all 0.6s ease;
+    font-family: 'simple-line-icons';
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 100;
+    width: 40px;
+    height: 40px;
+    text-align: left;
+    display: block;
+    padding-left: 8px;
+    margin-top: -1px;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons .owl-next:before {
+    content: "\e606";
+    padding-right: 8px;
+    text-align: right;
+}
+
+.owl-nav-round.owl-theme:hover .owl-controls .owl-buttons div {
+    opacity: 1;
+    left: 15px;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons div:hover:before {
+    color: #fff;
+}
+
+.owl-nav-round.owl-theme .owl-controls .owl-buttons div:hover {
+    border-color: #fff;
+}
+
+.owl-nav-round.owl-theme:hover .owl-controls .owl-buttons div.owl-next {
+    right: 15px;
+    left: initial;
+}

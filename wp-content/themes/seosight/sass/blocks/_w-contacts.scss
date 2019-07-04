@@ -1,0 +1,55 @@
+/*------------- #W-CONTACTS --------------*/
+
+.w-contacts .contacts-icon {
+  max-width: 48px;
+  max-height: 48px;
+}
+
+.w-contacts {
+  display: block;
+
+  .contacts-title, .heading-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .contacts-text {
+    margin-bottom: 30px;
+  }
+
+  .contacts-item {
+    margin-bottom: 20px;
+
+    img {
+      float: left;
+      margin: auto 30px auto auto;
+    }
+
+    .content {
+      overflow: hidden;
+
+      a {
+        font-size: 22px;
+      }
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: $font-color;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.sidebar {
+  .contacts-item {
+    .content {
+      overflow: hidden;
+
+      a {
+        font-size: 18px;
+      }
+    }
+
+  }
+}

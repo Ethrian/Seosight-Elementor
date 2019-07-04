@@ -1,0 +1,23 @@
+/*------------- #ICON-BLOCK --------------*/
+
+.crum-icon-module {
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+
+    i {
+      font-size: 70px;
+      line-height: 1
+    }
+  }
+  .icon-block-info {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .module-title {
+    @media (max-width: 800px) {
+      font-size: 18px;
+    }
+  }
+}

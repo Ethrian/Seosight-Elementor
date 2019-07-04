@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle>
+    <domain name="seosight">
+        <project>
+            <source>
+                <exclude>
+                    <directory>.</directory>
+                </exclude>
+            </source>
+            <target>
+                <directory>languages/theme</directory>
+            </target>
+            <template>
+                <file>languages/theme/seosight.pot</file>
+            </template>
+        </project>
+    </domain>
+</bundle>

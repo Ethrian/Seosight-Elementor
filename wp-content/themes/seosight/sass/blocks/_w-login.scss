@@ -1,0 +1,88 @@
+/*------------- #W-LOGIN --------------*/
+
+
+.w-login {
+  .top-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .helped {
+    text-align: center;
+  }
+
+  .w-custom-menu {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .helped a {
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+  }
+}
+
+.remember-wrap {
+  display: table-cell;
+  vertical-align: middle;
+
+  .checkbox {
+    position: relative;
+
+    input[type=checkbox] {
+      display: none;
+    }
+    label {
+      padding-left: 30px;
+    }
+    input {
+      margin-bottom: 25px;
+    }
+    label:before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      border-radius: 3px;
+      border: none;
+    }
+
+    input[type=checkbox]:checked + label:before {
+      content: "\2714";
+      font-size: 14px;
+      color: $white-color;
+      text-align: center;
+      line-height: 14px;
+    }
+  }
+}
+
+.login-btn-wrap {
+  overflow: hidden;
+  padding-bottom: 20px;
+  display: table;
+
+  .btn {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.sidebar {
+  .login-btn-wrap {
+    display: block;
+
+    .btn {
+      float: none;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .remember-wrap {
+    display: block;
+  }
+}

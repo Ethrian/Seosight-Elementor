@@ -1,0 +1,111 @@
+/*------------- #DESCRIPTION-BORDER --------------*/
+
+
+.crumina-product-description-border {
+  position: relative;
+  margin-top: 60px;
+  margin-left: 30px;
+  float: left;
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+
+  .product-description-thumb {
+    z-index: 5;
+    top: -60px;
+    left: -30px;
+    position: relative;
+    width: 45%;
+    float: left;
+
+    @media (max-width: 1024px) {
+      left: 0;
+    }
+
+    @media (max-width: 800px) {
+      margin: 0 auto;
+      max-width: 80%;
+      float: none;
+      top: -20px;
+    }
+
+    @media (max-width: 570px) {
+      width: 80%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .product-description-content {
+    padding: 90px;
+    width: 55%;
+    float: left;
+
+    @media (max-width: 800px) {
+      padding: 30px;
+      float: none;
+      width: auto;
+    }
+  }
+
+  .product-description-text {
+    padding-top: 20px;
+    font-size: 18px;
+  }
+
+  .product-description-border {
+    border: 6px solid $border-color;
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  &.even {
+    margin-left: 0;
+    margin-right: 30px;
+
+    .product-description-thumb {
+      left: auto;
+      right: -30px;
+      float: right;
+
+      @media (max-width: 1024px) {
+        right: 0;
+      }
+
+      @media (max-width: 800px) {
+        margin: 0 auto;
+        max-width: 80%;
+        float: none;
+      }
+
+      @media (max-width: 570px) {
+        width: 80%;
+      }
+    }
+
+    .product-description-content {
+      padding: 90px;
+
+      @media (max-width: 800px) {
+        padding: 30px;
+        float: none;
+        width: auto;
+      }
+    }
+
+    .product-description-border {
+      right: auto;
+      left: 0;
+    }
+  }
+}

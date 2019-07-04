@@ -1,0 +1,52 @@
+/*------------- #OUR-VIDEO --------------*/
+
+
+.crumina-our-video {
+  overflow: hidden;
+  min-height: 350px;
+  width: 100%;
+  position: static !important;
+
+  @media (max-width: 640px) {
+    display: block;
+  }
+
+  &.height-image {
+    min-height: inherit;
+
+    .video-thumb {
+      min-height: 100%;
+    }
+  }
+}
+
+kc[data-model] > .crumina-our-video > .full-block {
+  left: -15px;
+  right: -15px;
+}
+
+.video-thumb {
+  background-size: contain;
+  position: relative;
+  min-height: 320px;
+  background-color: #3cb878;
+
+  &.full-block {
+    position: absolute;
+    min-height: 100%;
+  }
+
+  > img{
+    width: 100%;
+  }
+
+  .video-control {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+}

@@ -1,0 +1,29 @@
+/*------------- #W-CUSTOM-MENU --------------*/
+
+
+.w-custom-menu {
+  overflow: hidden;
+  ul {
+    line-height: 1.2;
+    font-size: 14px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  li {
+    margin-bottom: 1.1em;
+    transition: all .3s ease;
+  }
+  ul ul {
+    margin-left: 1em;
+    margin-top: 1.1em;
+  }
+  i {
+    margin-right: 15px;
+    margin-top: 3px;
+  }
+  a:hover {
+    margin-left: 10px;
+  }
+}

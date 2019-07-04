@@ -1,0 +1,32 @@
+/*------------- #triple image module --------------*/
+
+.triple-images {
+  position: relative;
+  text-align: center;
+
+  .triple-images-thumb {
+    img {
+      position: relative;
+      z-index: 5;
+
+      @media (max-width: 1024px) {
+        width: 70%;
+      }
+    }
+  }
+  .first, .last {
+    position: absolute;
+    top: 15%;
+    z-index: 1;
+  }
+  .first {
+    left: 0;
+  }
+  .last {
+    right: 0;
+  }
+}
+
+.triple-images-thumb {
+  display: inline-block;
+}

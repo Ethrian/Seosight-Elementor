@@ -1,0 +1,90 @@
+/*------------- #COUNTERS --------------*/
+
+.counters {
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.crumina-counter-item {
+
+  @media (max-width: 1024px) {
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    margin-bottom: 30px;
+  }
+
+  .counter-numbers {
+    font-size: 100px;
+    line-height: 1;
+    margin-bottom: -35px;
+
+    @media (max-width: 1024px) {
+      font-size: 80px;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 50px;
+      margin-bottom: 0;
+    }
+
+    .units {
+      display: inline-block;
+    }
+  }
+
+  .counter-title {
+    color: $white-color;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .element-icon {
+    display: inline-block;
+    line-height: 1;
+  }
+  i {
+    font-size: 70px;
+    line-height: 1;
+  }
+
+  .counter-line {
+    opacity: .8;
+
+    .first {
+      display: inline-block;
+      width: 20px;
+      height: 3px;
+      border-radius: 10px;
+      position: relative;
+      margin-right: 10px;
+      background-color: rgba(255, 255, 255, .2);
+    }
+
+    .second {
+      display: inline-block;
+      width: 50px;
+      height: 3px;
+      border-radius: 10px;
+      position: relative;
+      background-color: rgba(255, 255, 255, .2);
+    }
+  }
+}
+
+.counter-item-default {
+  .counter-numbers {
+    color: rgba(255, 255, 255, .4);
+  }
+  i {
+    color: rgba(255, 255, 255, .7);
+  }
+}
+.counter-item-modern {
+  .counter-numbers {
+    margin-bottom: 0;
+  }
+}

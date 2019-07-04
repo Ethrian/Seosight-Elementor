@@ -1,0 +1,177 @@
+/*------------- #SUBSCRIBE --------------*/
+
+
+#subscribe-section {
+  color: #fff;
+}
+
+.subscribe {
+  padding: 72px 15px;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 72px 15px 170px;
+  }
+
+  form {
+    margin-bottom: 25px;
+  }
+
+  .subscribe-title {
+    margin-bottom: 23px;
+    color: inherit;
+  }
+
+  .sub-title {
+    opacity: .75;
+    float: left;
+  }
+
+  .images-block, .images {
+
+    img {
+      position: absolute;
+      opacity: 0;
+
+      &.mail {
+        left: 0;
+        bottom: -100%;
+
+        @media (max-width: 1199px) {
+          width: 11%;
+        }
+
+        @media (max-width: 768px) {
+          width: 35%;
+        }
+
+        @media (max-width: 640px) {
+          width: 40%;
+        }
+
+        @media (max-width: 360px) {
+          width: 60%;
+        }
+      }
+
+      &.gear {
+        top: 50px;
+        right: 0;
+
+        @media (max-width: 800px) {
+          top: 10px;
+        }
+      }
+
+      &.mail-2 {
+        bottom: -50px;
+        right: -100%;
+      }
+
+    }
+  }
+}
+
+.form-subscribe {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  @media (max-width: 460px) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  & > * {
+    height: 100%;
+
+    @media (max-width: 460px) {
+      flex-direction: column;
+      height: auto;
+    }
+  }
+
+  input {
+    background-color: $white-color;
+    padding: 17px 40px;
+    font-size: 16px;
+    color: #797676;
+    border-color: transparent;
+    border-radius: 50px 0 0 50px;
+    width: 70%;
+    margin-bottom: 0;
+
+    @media (max-width: 460px) {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 50px;
+    }
+
+    &:focus {
+      box-shadow: 17px 0 60px #d3dcdc;
+    }
+  }
+
+  &.with-name {
+    input {width: 35%}
+
+    .name{
+      border-radius: 0;
+      border-left: 1px solid $border-color;
+    }
+
+    @media (max-width: 460px) {
+      input {width: 100%;}
+      .name{
+        border-radius: 50px;
+        border-left: none;
+      }
+    }
+
+	&.name-field-swap {
+	  input {
+		width: 35%;
+		border-radius: 0;
+		@media (max-width: 460px) {
+		  width: 100%;
+		  border-radius: 50px;
+		}
+	  }
+
+	  .name{
+		border-radius: 50px 0 0 50px;
+		border-left: 1px solid $border-color;
+
+		@media (max-width: 460px) {
+		  width: 100%;
+		  border-radius: 50px;
+		}
+	  }
+	}
+  }
+
+  button {
+    display: inline-block;
+    background-color: $heading-color;
+    padding: 18px 40px;
+    border-radius: 0 50px 50px 0;
+    font-size: 15px;
+    text-transform: uppercase;
+    width: 30%;
+    cursor: pointer;
+    position: relative;
+    color: $white-color;
+    text-align: center;
+
+    @media (max-width: 480px) {
+      padding: 17px 10px;
+    }
+
+    @media (max-width: 460px) {
+      padding: 20px;
+      width: 100%;
+      border-radius: 50px;
+    }
+  }
+}

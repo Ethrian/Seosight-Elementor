@@ -1,0 +1,61 @@
+/*------------- #WIDGETS --------------*/
+
+
+.widget {
+  margin-bottom: 80px;
+
+  ul{
+    list-style: none;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+  .heading, .crumina-heading {
+    margin-bottom: 30px;
+  }
+}
+
+.sidebar .widget {
+  &:first-child {
+    @media (max-width: 768px) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.visual-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.widget {
+  .es_textbox_class {
+    width: 100%;
+  }
+
+  .es_lablebox {
+    padding-bottom: 3px;
+    padding-left: 40px;
+  }
+
+  .es_textbox_button {
+    width: auto;
+    background-color: $primary-color;
+    color: $white-color;
+    padding: 22px 50px;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      padding: 15px 35px;
+      font-size: 13px;
+    }
+  }
+}

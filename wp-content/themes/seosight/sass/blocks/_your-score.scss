@@ -1,0 +1,53 @@
+/*------------- #your-score --------------*/
+
+.crumina-your-score {
+  position: relative;
+  overflow: hidden;
+
+  .images {
+    img {
+      position: absolute;
+      opacity: 0;
+
+      &:first-of-type {
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+      }
+
+      &:nth-child(2) {
+        bottom: -100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+      }
+
+      &:last-of-type {
+        bottom: -100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+      }
+    }
+  }
+}
+
+.call-to-action {
+  .table-cell {
+    @media (max-width: 800px) {
+      display: block;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    &:last-child {
+      @media (max-width: 800px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

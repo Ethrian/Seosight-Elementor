@@ -1,0 +1,73 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1">crum-form</custom-type>
+    <custom-type translate="1">fw-slider</custom-type>
+    <custom-type translate="1">fw-portfolio</custom-type>
+  </custom-types>
+  <taxonomies>
+    <taxonomy translate="1">fw-portfolio-category</taxonomy>
+  </taxonomies>
+  <custom-fields>
+    <custom-field action="translate">kc_data</custom-field>
+  </custom-fields>
+  <admin-texts>
+    <key name="theme_mods_seosight">
+      <key name="0"/>
+      <key name="fw_options">
+        <key name="footer_contacts">
+          <key name="0">
+            <key name="title"/>
+            <key name="subtitle"/>
+            <key name="icon"/>
+          </key>
+          <key name="1">
+            <key name="title"/>
+            <key name="subtitle"/>
+            <key name="icon"/>
+          </key>
+          <key name="2">
+            <key name="title"/>
+            <key name="subtitle"/>
+            <key name="icon"/>
+          </key>
+        </key>
+        <key name="footer_copyright"/>
+        <key name="site-description">
+          <key name="value"/>
+          <key name="yes">
+            <key name="description">
+              <key name="title"/>
+              <key name="desc"/>
+            </key>
+          </key>
+        </key>
+        <key name="section-subscribe-form">
+          <key name="title"/>
+          <key name="desc"/>
+          <key name="custom-form">
+            <key name="value"/>
+            <key name="yes">
+              <key name="html"/>
+            </key>
+          </key>
+        </key>
+        <key name="aside-panel">
+          <key name="value"/>
+          <key name="yes">
+            <key name="text"/>
+          </key>
+        </key>
+        <key name="logo-image">
+          <key name="attachment_id"/>
+          <key name="url"/>
+        </key>
+        <key name="folio-related-show">
+          <key name="value"/>
+          <key name="yes">
+            <key name="block_title"/>
+          </key>
+        </key>
+      </key>
+    </key>
+  </admin-texts>
+</wpml-config>

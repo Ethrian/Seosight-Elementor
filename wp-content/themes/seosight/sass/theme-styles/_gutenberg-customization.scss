@@ -1,0 +1,138 @@
+/*------------- #Gutenberg Customization --------------*/
+
+
+.crumina-grid {
+
+  .wp-block-pullquote {
+	border-top: 4px solid #555d66;
+	border-bottom: 4px solid #555d66;
+	color: #40464d;
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	p::before {
+	  display: none;
+	}
+  }
+
+  .wp-block-image,
+  .wp-block-embed-vimeo {
+	margin: 2em auto;
+  }
+
+  .wp-block-gallery {
+	margin: 2em -8px;
+	list-style: none;
+	padding-left: 0;
+  }
+
+  .wp-block-image {
+	figcaption {
+	  margin-bottom: 0;
+	}
+  }
+
+  .wp-block-separator {
+	border: none;
+	border-bottom-color: currentcolor;
+	border-bottom-style: none;
+	border-bottom-width: medium;
+	border-bottom: 2px solid #8f98a1;
+	margin: 1.65em auto;
+
+	&:after {
+	  display: block;
+	  content: "";
+	  clear: both;
+	}
+
+	&.is-style-dots {
+	  border: none;
+	}
+  }
+
+  .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: 100px;
+  }
+
+  .blog-post {
+
+	ul:not([class]) {
+	  li {
+		& + li {
+		  margin-top: 8px;
+		}
+	  }
+	}
+  }
+
+  .wp-block-categories,
+  .wp-block-archives,
+  .wp-block-latest-posts,
+  .wp-block-latest-posts {
+	list-style: none;
+	padding-left: 0;
+
+	li {
+	  list-style: none;
+
+	  a {
+		color: $heading-color;
+	  }
+	}
+  }
+
+  .wp-block-quote.is-large cite {
+	text-align: initial;
+  }
+
+  .wp-block-pullquote cite,
+  .wp-block-quote cite {
+	margin-top: 10px;
+  }
+
+  .wp-block-quote.is-large,
+  .wp-block-quote.is-style-large {
+	margin: 3em 0;
+	padding: 15px 15px 15px 100px;
+  }
+
+  figure.wp-block-audio {
+	margin: 1em 0;
+  }
+
+  .wp-block-archives {
+	padding-left: 0;
+  }
+
+  .wp-block-preformatted {
+	overflow: auto;
+  }
+
+  .post .post__content ul.wp-block-archives li,
+  .post .post__content ul.wp-block-categories li,
+  .post .post__content ul.wp-block-latest-posts li {
+	list-style: none;
+  }
+}
+
+
+/*------------- Responsive mode styles --------------*/
+
+@media (max-width: 640px) {
+  .crumina-grid .wp-block-quote.is-large,
+  .crumina-grid .wp-block-quote.is-style-large {
+	padding-left: 50px;
+	margin: 1em 0;
+  }
+
+  .wp-block-quote.is-large p,
+  .wp-block-quote.is-style-large p,
+  .wp-block-pullquote p {
+	font-size: 16px;
+  }
+
+  .crumina-grid .wp-block-pullquote {
+	padding: 1em 0;
+  }
+}

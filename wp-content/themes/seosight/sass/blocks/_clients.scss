@@ -1,0 +1,43 @@
+/*------------- #CLIENTS --------------*/
+
+.client-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 39px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 570px) {
+    margin-bottom: 30px;
+  }
+
+  .client-image {
+    position: relative;
+    transition: all .3s ease;
+    backface-visibility: hidden;
+    text-align: center;
+
+    img {
+      position: relative;
+      backface-visibility: hidden;
+    }
+  }
+  &:hover {
+    .client-image {
+      opacity: 0.5;
+      backface-visibility: hidden;
+    }
+
+  }
+}
+
+.image-opacity {
+  transition: opacity .3s ease;
+}
+
+.image-opacity:hover {
+  opacity: .5;
+}

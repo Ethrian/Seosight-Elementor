@@ -1,0 +1,43 @@
+/*
+Theme Name: Seosight
+Theme URI: http://theme.crumina.net/seosight/
+Author: crumina
+Author URI: http://crumina.net
+Description: Seosight - fresh idea for the SEO, Digital Marketing Agency.
+Version: 3.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: seosight
+Tags: one-column, two-columns, right-sidebar, custom-menu, editor-style, featured-images, microformats, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Main theme styles can be found in file:
+--------------------------------
+css/styles.css
+--------------------------------
+
+*/
+
+
+/*Classes for theme checker. All styles still in main file*/
+.sticky {
+    position: relative;
+}
+
+.bypostauthor {
+    position: relative;
+}
+
+.wp-caption {
+    position: relative;
+}
+
+.wp-caption-text {
+    position: relative;
+}
+
+.gallery-caption {
+    position: relative;
+}

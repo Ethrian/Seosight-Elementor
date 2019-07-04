@@ -1,0 +1,171 @@
+/*------------- #FOOTER --------------*/
+
+
+.footer {
+  background-color: #151414;
+  color: rgb(255, 255, 255);
+
+  @media (max-width: 768px) {
+    padding-top: 40px;
+  }
+
+  .info {
+    padding-top: 110px;
+    padding-bottom: 60px;
+    border-bottom: 2px solid rgba(255, 255, 255, .1);
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 30px;
+    }
+
+    .heading, .crumina-heading {
+      margin-bottom: 23px;
+
+      .heading-title {
+        color: inherit;
+      }
+
+      .heading-text {
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: .4;
+      }
+    }
+
+    .socials {
+      @media (max-width: 1024px) {
+        margin-bottom: 30px;
+      }
+
+      .social__item {
+        @media (max-width: 320px) {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
+  .contacts {
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: 570px) {
+      display: block;
+    }
+
+    .title {
+      font-size: 24px;
+      transition: all .3s ease;
+
+      @media (max-width: 1024px) {
+        font-size: 16px;
+      }
+    }
+
+    .contacts-item .content .sub-title {
+      opacity: .4;
+      margin-bottom: 0;
+    }
+    .contacts-item .content a {
+      color: inherit;
+    }
+  }
+
+  a {
+    color: rgba(255, 255, 255, .35);
+    transition: all .3s ease;
+  }
+
+  .sub-footer {
+    background-color: #121111;
+    padding: 60px 0;
+    position: relative;
+
+    &.medium {
+      padding: 30px 0;
+    }
+
+    &.small {
+      padding: 15px 0;
+    }
+
+    @media (max-width: 768px) {
+      padding: 30px 0;
+    }
+
+    span {
+      font-size: 14px;
+      margin-right: 30px;
+      color: #504D4E;
+
+      @media (max-width: 980px) {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      &:last-of-type {
+        padding-right: 70px;
+      }
+    }
+  }
+
+  &.js-fixed-footer {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0, 1);
+
+    @media (max-width: 1280px) {
+      position: relative;
+    }
+  }
+
+  .w-post-category {
+    .category-post-item:hover {
+      .post-count {
+        color: rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
+
+  .widget_rss {
+    .heading .rsswidget, .crumina-heading .rsswidget {
+      color: #fff;
+    }
+  }
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.block-footer-height {
+  position: relative;
+  width: 100%;
+
+  @media (max-width: 1280px) {
+    display: none;
+  }
+}
