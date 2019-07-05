@@ -14,7 +14,7 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
 
 
 	public function get_icon() {
-		return 'fa fa-bug';
+		return 'fa fa-reply';
 	}
 
 

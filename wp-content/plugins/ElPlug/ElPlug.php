@@ -241,11 +241,16 @@ final class Elementor_Test_Extension {
 		require_once( __DIR__ . '/widgets/elementor_button.php' );
 		require_once( __DIR__ . '/widgets/helpers.php' );
 		require_once( __DIR__ . '/widgets/elementor_title.php' );
+		require_once( __DIR__ . '/widgets/elementor_image.php' );
+		require_once( __DIR__ . '/widgets/elementor_client_slider.php' );
 		// Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_icon() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_button() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_slider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_title() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_shifted_image() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \elementor_client_slider() );
+
 	}
 
 	/**
