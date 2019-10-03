@@ -32,7 +32,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_control( // TODO:  BELOW!
 			'layout',
 			[
 				'label'         => esc_html__( 'Displays feature boxes style', 'seosight' ),

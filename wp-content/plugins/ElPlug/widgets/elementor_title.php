@@ -242,6 +242,7 @@ class Elementor_title extends \Elementor\Widget_Base {
 
 		var delim_html = '';
 		var el_class = 'crumina-module crumina-heading';
+        var subtitle_html = '';
 
 		if (inline_link !== 'yes') el_class += attr.align;
 
@@ -260,11 +261,11 @@ class Elementor_title extends \Elementor\Widget_Base {
 
 		#>
  
-		<div class="{{el_class}}">
-    		<div class="title-text-wrap">
-        		<{{{attr.type}}} class="heading-title">{{{attr.title}}}</{{{attr.type}}}>
-        		<a {{link_html}}></a>
-    		</div>
+		<div class='{{el_class}}'>
+            <div class="title-text-wrap"></div>
+            <{{{attr.type}}} > {{{attr.title}}} </{{{attr.type}}}>
+           <a {{link_html}}> </a>
+        </div>
 		{{{delim_html}}}
 		{{{subtitle_html}}}
 		</div>

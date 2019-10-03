@@ -110,6 +110,122 @@ class Elementor_team extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+		    'css',
+            [
+                'label'     => esc_html__('Team', 'seosight'),
+                'tab'       => \Elementor\Controls_Manager::TAB_STYLE
+            ]
+        );
+
+		$this->add_group_control(
+			'box-shadow',
+			[
+				'name' => 'box_shadow',
+				'label' => esc_html__( 'Box Shadow', 'seosight' ),
+				'selector' => '{{WRAPPER}} .module-image',
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'name'      => 'border',
+				'label'     => esc_html__( 'Border on hover', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .module-image',
+			]
+		);
+
+		$this->add_group_control(
+			'image-size',                          //TODO: fix it
+			[
+			    'label'     => esc_html__('Image size', 'seosight'),
+				'name'      => esc_html__('image-size', 'seosight'),
+				'label'     => esc_html__( 'Image size', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .module-image img',
+			]
+		);
+
+		$this->add_control(
+			'background-color',
+			[
+				'label'     => esc_html__( 'Padding', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .module-image' => 'padding: {{SCHEME}};'
+					]
+			]
+		);
+
+
+
+		//-------------------
+
+		$this->add_control(
+			'title-color',
+			[
+				'label'     => esc_html__( 'Title color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .teammembers-item-name' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'title_typography',
+				'label'     => esc_html__( 'Title typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .teammembers-item-name',
+			]
+		);
+
+		$this->add_control(
+			'subtitle-color',
+			[
+				'label'     => esc_html__( 'Subtitle color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .teammembers-item-prof' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'subtitle_typography',
+				'label'     => esc_html__( 'Subtitle typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .teammembers-item-prof',
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 

@@ -4,7 +4,7 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
 
 
 	public function get_name() {
-		return 'client slider';
+		return 'client_slider';
 	}
 
 
@@ -42,21 +42,21 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
                 'size_units'    => ['em'],
                 'range'         =>
                 [
-                    'em'        => 
+                    'em'        =>
                     [
                         'min'       => 1,
                         'max'       => 10,
                         'step'      => 1
                     ]
                 ],
-                'default'       => 
+                'default'       =>
                 [
                     'unit'      => 'em',
                     'size'      => 4
                 ]
 			]
         );
-        
+
         $this->add_control(
             'arrows',
             [
@@ -83,41 +83,108 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'autoscroll',
-            [
-                'label'         => esc_html__( 'Autoslide', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::SWITCHER,
-                'description' => esc_html__( 'Automatic auto scroll slides', 'seosight' ),
-                'label_on'		=> esc_html__('yes', 'seosight' ),
-				'label_off'		=> esc_html__( 'no', 'seosight' ),
-                'default'       => 'no',
-                'return_value'  => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'time',
-            [
-                'label'         => esc_html__('Delay between scroll', 'seosight'),
-                'type'          => \Elementor\Controls_Manager::SLIDER,
-                'size_units'    => ['sec'],
-                'range'         =>
-                [
-                    'sec'        => 
-                    [
-                        'min'       => 1,
-                        'max'       => 30,
-                        'step'      => 1
-                    ]
-                ],
-                'default'       => 
-                [
-                    'unit'      => 'sec',
-                    'size'      => 5
-                ]
+		$this->add_control(
+			'pause_on_hover',
+			[
+				'label' => __( 'Pause on Hover', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes' => __( 'Yes', 'elementor' ),
+					'no' => __( 'No', 'elementor' ),
+				],
+				'frontend_available' => true,
 			]
-        );
+		);
+
+		$this->add_control(
+			'autoplay',
+			[
+				'label' => __( 'Autoplay', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes' => __( 'Yes', 'elementor' ),
+					'no' => __( 'No', 'elementor' ),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'autoplay_speed',
+			[
+				'label' => __( 'Autoplay Speed', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'default' => 5000,
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'infinite',
+			[
+				'label' => __( 'Infinite Loop', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes' => __( 'Yes', 'elementor' ),
+					'no' => __( 'No', 'elementor' ),
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'effect',
+			[
+				'label' => __( 'Effect', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'slide',
+				'options' => [
+					'slide' => __( 'Slide', 'elementor' ),
+					'fade' => __( 'Fade', 'elementor' ),
+				],
+				'condition' => [
+					'slides_to_show' => '1',
+				],
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'speed',
+			[
+				'label' => __( 'Animation Speed', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'default' => 500,
+				'frontend_available' => true,
+			]
+		);
+
+//        $this->add_control(
+//            'autoplay',
+//            [
+//                'label'         => esc_html__( 'Autoslide', 'seosight' ),
+//                'type'          => \Elementor\Controls_Manager::SWITCHER,
+//                'description' => esc_html__( 'Automatic auto scroll slides', 'seosight' ),
+//                'label_on'		=> esc_html__('yes', 'seosight' ),
+//				'label_off'		=> esc_html__( 'no', 'seosight' ),
+//                'default'       => 'no',
+//                'return_value'  => 'yes',
+//				'frontend_available' => true,
+//            ]
+//        );
+//
+//		$this->add_control(
+//			'autoplay_speed',
+//			[
+//				'label' => __( 'Autoplay Speed', 'seosight' ),
+//				'type' => \Elementor\Controls_Manager::NUMBER,
+//				'default' => 5000,
+//				'frontend_available' => true,
+//			]
+//		);
 
 		$this->end_controls_section();
 
@@ -153,7 +220,7 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
         $this->add_control(
 			'list',
 			[
-				'label' => __( 'Repeater List', 'seosight' ),
+				'label' => esc_html__( 'Repeater List', 'seosight' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 			]
@@ -167,30 +234,30 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
 
         $settings = $this->get_settings_for_display();
 
-        $count = $settings['number-of-items'];
+        $count = $settings['number-of-items']['size'];
         $arrows = $settings['arrows'];
         $dots = $settings['dots'];
-        $autoscroll = $settings['autoscroll'];
-        $delay = $settings['time'];
+        $autoscroll = $settings['autoplay'];
+        $delay = $settings['time']['size'];
         $items = $settings['list'];
         $items_html = '';
 
-        $slider_attr = 'data-show-items="' . esc_attr( $count ) . '"';
+        $slider_attr[] = 'data-show-items="' . esc_attr( $count ) . '" ';
 
         if ( 'yes' === $autoscroll ) {
-            $slider_attr[] = 'data-autoplay="' . esc_attr( intval( $delay ) * 1000 ) . '"';
+            $slider_attr[] = 'transition-duration: ' . esc_attr( $delay * 1000 ) . 'ms';
         }
         if ( 'yes' === $arrows ) {
-	        $pagination_class = 'pagination-bottom-large';
+	        $pagination_class = 'pagination-bottom-large ';
         } elseif ( 'yes' === $dots ) {
-	        $pagination_class = 'pagination-bottom';
+	        $pagination_class = 'pagination-bottom ';
         } else {
 	        $pagination_class = '';
         }
 
         ?>
         <div class="<?php echo implode( ' ', $wrap_class ); ?>">
-            <div class="swiper-container <?php echo esc_attr( $pagination_class ) ?>" <?php echo esc_attr($slider_attr); ?>>
+            <div class="swiper-container <?php echo esc_attr( $pagination_class ) ?>" style="<?php echo esc_attr($slider_attr[0]); ?>">
                 <div class="swiper-wrapper">
                 <?php
                     foreach ( $items as $item ) {
@@ -241,12 +308,7 @@ class Elementor_client_slider extends \Elementor\Widget_Base {
                 <?php } ?>
             </div>
         </div>
-        <script type="text/javascript">
-            
-            jQuery(document).ready(function(){
-                CRUMINA.initSwiper
-            });
-        </script> <?php
+         <?php
 
     }
 

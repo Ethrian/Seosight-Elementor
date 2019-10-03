@@ -161,6 +161,135 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'css',
+			[
+				'label'         => esc_html__( 'Promotion block', 'seosight' ),         //TODO: style tabs!
+				'tab'           => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'title-color',
+			[
+				'label'     => esc_html__( 'Color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .servises-title' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_control(
+			'hover-title-color',
+			[
+				'label'     => esc_html__( 'Color on hover', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .servises-title:hover, .promo-link:hover' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'title_typography',
+				'label'     => esc_html__( 'Typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .servises-title',
+			]
+		);
+
+		$this->add_control(
+			'subtitle-color',
+			[
+				'label'     => esc_html__( 'Color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .servises-text, .promo-link' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_control(
+			'hover-subtitle-color',
+			[
+				'label'     => esc_html__( 'Color on hover', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .servises-text:hover, .promo-link:hover' => 'color: {{SCHEME}};'
+					]
+                ]
+        );
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'subtitle_typography',
+				'label'     => esc_html__( 'Typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .servises-text',
+			]
+		);
+
+		$this->add_control(
+			'image-background',
+			[
+				'label'     => esc_html__( 'Background', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .servises-item__thumb img' => 'background: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'name'      => 'border',
+				'label'     => esc_html__( 'Border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .servises-item__thumb img',
+			]
+		);
+
+		$this->end_controls_section();
+
     }
     
 
@@ -173,7 +302,7 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
         extract($settings);
 
         if ( !empty($image) || !empty($image_hover) ){
-            $data_img .= '<div class = "servises-item__thumb>"';
+            $data_img .= '<div class = "servises-item__thumb">';
             if ( !empty($image_hover) ) {
                 $data_img .= '<img src="'. $image_hover['url'] .'" alt ="'. esc_attr($title) .'" class = "hover">';
             } 

@@ -36,9 +36,12 @@ class elementor_icon extends \Elementor\Widget_Base {
 			'icon',
 			[
 				'label' 		=> esc_html__( 'Icon', 'seosight' ),
-				'type' 			=> \Elementor\Controls_Manager::ICON,
+				'type' 			=> \Elementor\Controls_Manager::ICONS,
 				'descrition' 	=> esc_html__( 'Display single icon', 'seosight' ),
-				'default'		=> 'fa fa-circle',
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
 			]
 		);
 
@@ -80,6 +83,108 @@ class elementor_icon extends \Elementor\Widget_Base {
 			]
 		);
 
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+		        'css',
+                [
+					'label'     => esc_html__( 'Icon', 'seosight' ),
+					'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+
+        );
+
+		$this->add_control(
+			'color',
+			[
+				'label'     => esc_html__( 'Icon color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .icon i' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_control(
+		        'color-hover',
+                [
+					'label'     => esc_html__( 'Icon color on hover', 'seosight' ),
+					'type'      => \Elementor\Controls_Manager::COLOR,
+					'scheme' =>
+						[
+							'type' => \Elementor\Scheme_Color::get_type(),
+							'value' => \Elementor\Scheme_Color::COLOR_1,
+						],
+
+					'selectors' =>
+						[
+							'{{WRAPPER}} .icon i:hover' => 'color: {{SCHEME}};'
+                        ]
+                ]
+        );
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'content_typography',
+				'label'     => esc_html__( 'Icon typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .module-title, .icon i',
+			]
+		);
+
+		$this->add_control(
+			'txt-color',
+			[
+				'label'     => esc_html__( 'Title color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .module-title' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+
+		$this->add_control(
+			'color-background',
+			[
+				'label'     => esc_html__( 'Background color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .icon' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'label'     => esc_html__( 'Border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .icon',
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -133,7 +238,7 @@ class elementor_icon extends \Elementor\Widget_Base {
 					echo implode(' ', $link_att);
 				}
 				?>
-			>				<span class="icon"><i class="<?php echo esc_attr( implode( " ", $class_icon ) ) ?>"></i></span>
+			>				<span class="icon"><?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?></span class="icon">
 				<?php if ( ! empty( $title ) ) {
 					echo '<span class="h4 module-title">' . esc_html( $title ) . '</span>';
 				} ?>

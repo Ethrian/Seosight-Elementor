@@ -58,9 +58,15 @@ class Elementor_button extends \Elementor\Widget_Base {
             'button_icon', 
             [
                 'label'         => esc_html__( 'Icon', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::ICON,
+                'type'          => \Elementor\Controls_Manager::ICONS,
                 'description'   => esc_html__( 'Select icon for your button', 'seosight' ),
-                'default'       => 'fa fa-toggle-right',
+				'default'       => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
+                'condition'     => [
+                        'show_icon' => 'yes'
+                ]
             ]
         );
 
@@ -79,7 +85,10 @@ class Elementor_button extends \Elementor\Widget_Base {
 						'title'         => esc_html__( 'Right', 'seosight' ),
 						'icon'          => 'fa fa-align-right',
 					],
-                ]
+                ],
+				'condition'     => [
+					'show_icon' => 'yes'
+				]
             ]
         );
 
@@ -100,12 +109,12 @@ class Elementor_button extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-            'button_color', 
+            'button_color',
             [
                 'label'         => esc_html__( 'Button color', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::SELECT,
                 'description'   => esc_html__( 'Customize button color as you like', 'seosight' ),
-                'options'       => 
+                'options'       =>
                 [
                     'btn--dark'          => esc_html__( 'black', 'seosight' ),
                     'btn--white'         => esc_html__( 'white', 'seosight' ),
@@ -227,6 +236,116 @@ class Elementor_button extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+//---------------------------------------------------------------------
+
+        $this->start_controls_section(
+            'css',
+            [
+                'label'         => esc_html__( 'Button', 'seosight' ),
+                'tab'           => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'text-color',
+            [
+                'label'     => esc_html__( 'Text color', 'seosight' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'scheme' =>
+                    [
+                    'type' => \Elementor\Scheme_Color::get_type(),
+                    'value' => \Elementor\Scheme_Color::COLOR_1,
+                    ],
+
+                'selectors' =>
+                [
+                    '{{WRAPPER}} .btn' => 'color: {{SCHEME}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+                'background-color',
+                [
+                    'label'     => esc_html__( 'Background color', 'seosight' ),
+                    'type'      => \Elementor\Controls_Manager::COLOR,
+                    'scheme' =>
+                        [
+                            'type' => \Elementor\Scheme_Color::get_type(),
+                            'value' => \Elementor\Scheme_Color::COLOR_1,
+                        ],
+
+                    'selectors' =>
+                        [
+                            '{{WRAPPER}} .btn' => 'background-color: {{SCHEME}};'                // TODO: SVG!!!
+                        ]
+                ]
+        );
+
+        $this->add_group_control(
+			'typography',
+			[
+				'name'      => 'content_typography',
+				'label'     => esc_html__( 'Typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .btn',
+			]
+        );
+
+		$this->add_group_control(
+			'border',
+			[
+				'label'     => esc_html__( 'Border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .btn',
+			]
+		);
+
+        $this->add_control(
+                'hover-txt',
+                [
+                    'label'     => esc_html__( 'Text color on hover', 'seosight' ),
+                    'type'      => \Elementor\Controls_Manager::COLOR,
+					'scheme' =>
+						[
+							'type' => \Elementor\Scheme_Color::get_type(),
+							'value' => \Elementor\Scheme_Color::COLOR_1,
+						],
+
+					'selectors' =>
+						[
+							'{{WRAPPER}} .btn:hover' => 'color: {{SCHEME}};'
+						]
+                ]
+        );
+
+		$this->add_control(
+			'hover-background',
+			[
+				'label'     => esc_html__( 'Background color on hover', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .btn:hover' => 'background-color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+			    'name'      => 'hover',
+				'label'     => esc_html__( 'Border on hover', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .btn:hover',
+			]
+		);
+
+        $this->end_controls_section();
 	}
 
 
@@ -300,9 +419,11 @@ class Elementor_button extends \Elementor\Widget_Base {
 	        	<?php
 		        if ( $show_icon == true ) {
 		        	if ( $lb_pos == 'left' ) {
-		        		echo '<i class="' . esc_attr( $icon ) . '"></i><span class="text">' .'  '. esc_attr($title) . '</span>';
+						\Elementor\Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
+		        		echo '<span class="text">' .'  '. esc_attr($title) . '</span>';
 	        		} else {
-			        	echo '<span class="text">' . esc_attr($title) .'  '. '</span><i class="' . esc_attr( $icon ) . '"></i>';
+			        	echo '<span class="text">' . esc_attr($title) .'  '. '</span>';
+						\Elementor\Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
 			        }
 		        } else {
         			if ($title) {
