@@ -109,7 +109,8 @@ class Elementor_title extends \Elementor\Widget_Base {
 					'url'			=> '#',
 					'is_external'	=> false,
 					'nofollow'		=> false
-				]
+				],
+                'condition'     => ['inline_link' => 'yes']
 			]
 		);
 
@@ -153,6 +154,93 @@ class Elementor_title extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'css',
+			[
+				'label'         => esc_html__( 'Title', 'seosight' ),
+				'tab'           => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+        );
+
+		$this->add_control(
+			'title-color',
+			[
+				'label'     => esc_html__('Title color', 'seosight'),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+				'default'   => '#000000',
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .heading-title' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'title_typography',
+				'label'     => esc_html__( 'Title typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .heading-title',
+			]
+		);
+
+		$this->add_control(
+			'subtitle-color',
+			[
+				'label'     => esc_html__('Subtitle color', 'seosight'),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+				'default'   => '#2a2a2f',
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .heading-text' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'subtitle_typography',
+				'label'     => esc_html__( 'Subtitle typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .heading-text',
+			]
+		);
+
+		$this->add_control(
+			'decoration-color',
+			[
+				'label'     => esc_html__('Decoration color', 'seosight'),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+				'default'   => '#ba1200',
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .heading-decoration' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 
@@ -190,7 +278,7 @@ class Elementor_title extends \Elementor\Widget_Base {
 		
 				// $link_title = ! empty( $ ? $link_arr[1] : esc_html__( 'Read more', 'seosight' );
 		
-				$target = ( $title_link['is_exernal'] ) ? 'targert ="_blank"' : 'target ="_self"';
+				$target = ( $title_link['is_exernal'] ) ? 'target ="_blank"' : 'target ="_self"';
 		
 				$rel = ( $title_link['nofollow'] ) ? 'rel ="nofollow"' : ''; 
 				;
@@ -205,7 +293,12 @@ class Elementor_title extends \Elementor\Widget_Base {
 				$title = esc_attr( $text_title );
 			}
 		}
-		$el_class .= ' heading-title';
+
+		if (!empty($el_class)) {
+			$el_class .= ' heading-title';
+		} else {
+			$el_class = 'h1 heading-title';
+        }
 		?>
 		
 		<header class="<?php echo esc_attr( implode( ' ', $wrap_class ) ); ?>">
