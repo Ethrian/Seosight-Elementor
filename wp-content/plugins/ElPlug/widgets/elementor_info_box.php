@@ -85,17 +85,23 @@ class Elementor_info_box extends \Elementor\Widget_Base {
             'image',
             [
                 'label'         => esc_html__( 'Upload image', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::MEDIA
+                'type'          => \Elementor\Controls_Manager::MEDIA,
+                'condition'     => ['media' => 'image']
             ]
+
         );
 
         $this->add_control(
             'icon',
             [
                 'label'         => esc_html__('Select icon', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::ICON,
+                'type'          => \Elementor\Controls_Manager::ICONS,
                 'description'   => esc_html__( 'Select icon display in box', 'seosight' ),
-                'default'       => 'fa fa-abn'
+                'default'       => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
+				'condition'     => ['media' => 'icon']
             ]
         );
         
@@ -118,7 +124,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
             'link_title',
             [
                 'label'         => esc_html__( 'Link title', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::TEXT
+                'type'          => \Elementor\Controls_Manager::TEXT,
+
             ]
         );
 
@@ -158,7 +165,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
                     'btn--light-green'   => esc_html__( 'light green', 'seosight' ),
                     'btn--dark-blue'     => esc_html__( 'dark blue', 'seosight' ),
                 ],
-                'default'       => 'btn--gray'
+                'default'       => 'btn--gray',
+				'condition'     => ['is_button' => 'yes']
             ]
         );
 
@@ -174,7 +182,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
                     'btn-medium'        => esc_html__( 'medium', 'seosight' ),
                     'btn-large'         => esc_html__( 'large', 'seosight' ),
                 ],
-                'default'       => 'btn-medium'
+                'default'       => 'btn-medium',
+				'condition'     => ['is_button' => 'yes']
             ]
         );
 
@@ -187,9 +196,158 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 				'label_on'		=> esc_html__('Yes', 'seosight' ),
 				'label_off'		=> esc_html__( 'No', 'seosight' ),
                 'default'       => 'no',
-                'return_value'  => 'yes',    
+                'return_value'  => 'yes',
+				'condition'     => ['is_button' => 'yes']
             ]            
         );
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+		        'css',
+			[
+				'label'         => esc_html__( 'Info box', 'seosight' ),
+				'tab'           => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+        );
+
+		$this->add_control(
+		        'title-color',
+                [
+                    'label'     => esc_html__('Title color', 'seosight'),
+                    'type'      => \Elementor\Controls_Manager::COLOR,
+					'scheme' =>
+						[
+							'type' => \Elementor\Scheme_Color::get_type(),
+							'value' => \Elementor\Scheme_Color::COLOR_1,
+						],
+					'default'   => '#b77031',
+
+					'selectors' =>
+						[
+							'{{WRAPPER}} .info-box-title' => 'color: {{SCHEME}};'
+						]
+                ]
+        );
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'title_typography',
+				'label'     => esc_html__( 'Title typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .info-box-title',
+			]
+		);
+
+		//==========
+
+		$this->add_control(
+			'text-color',
+			[
+				'label'     => esc_html__('Text color', 'seosight'),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+                'default'   => '#7a7a7a',
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .info-box-text' => 'color: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'text_typography',
+				'label'     => esc_html__( 'Text typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .info-box-text',
+			]
+		);
+
+		//=========
+
+		$this->add_control(
+			'icon-color',
+			[
+				'label'     => esc_html__( 'Icon color', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .info-box-image i' => 'color: {{SCHEME}};'
+					],
+                'condition'     => ['media' => 'icon']
+			]
+		);
+
+		$this->add_control(
+			'image-background',
+			[
+				'label'     => esc_html__( 'Image background', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .info-box-image' => 'background: {{SCHEME}};'
+					]
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'name'      => 'img-border',
+				'label'     => esc_html__( 'Image border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .info-box-image',
+			]
+		);
+
+		//======
+
+		$this->add_control(
+			'content-background',
+			[
+				'label'     => esc_html__( 'Info box background', 'seosight' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'scheme' =>
+					[
+						'type' => \Elementor\Scheme_Color::get_type(),
+						'value' => \Elementor\Scheme_Color::COLOR_1,
+					],
+
+				'selectors' =>
+					[
+						'{{WRAPPER}} .info-box-content' => 'background: {{SCHEME}};'
+					],
+				'default'   => '#f9f9f9',
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'name'      => 'content-border',
+				'label'     => esc_html__( 'Info box border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .info-box-content',
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -206,14 +364,6 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 
         if ('image' == $media && $image) {
             $data_img .= '<img src ="'. $image['url'] .'" alt = "'. $title . '">';
- 
-        } else {
-
-            if (!$icon || $icon == '__empty__') {
-                $icon = 'fa fa-bug';
-            }
-            
-            $data_img .= '<i class ="'. $icon .'"></i>';
         }
 
         if ($link['url']) {
@@ -237,19 +387,22 @@ class Elementor_info_box extends \Elementor\Widget_Base {
         }
 
         ?>
-        <div class="crumina-module crumina-info-box info-box--standand">
+        <div class="crumina-module crumina-info-box info-box--<?php echo $layout; ?>">
             <div class="info-box-image">
-                <?php seosight_render( $data_img ); ?>
+				<?php
+				if ($media == 'icon') \Elementor\Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ]);
+				else seosight_render($data_img);
+				?>
             </div>
             <div class="info-box-content">
-                <?php
-                if ( ! empty( $title ) ) { ?>
+				<?php
+				if ( ! empty( $title ) ) { ?>
                     <h5 class="info-box-title"><?php echo wp_kses( $title, $allowedposttags ) ?></h5>
-                <?php } ?>
-                <?php if ( ! empty( $desc ) ) { ?>
+				<?php } ?>
+				<?php if ( ! empty( $desc ) ) { ?>
                     <div class="info-box-text"><?php echo wp_kses( $desc, $allowedposttags ); ?></div>
-                <?php } ?>
-                <?php seosight_render( $data_button ) ?>
+				<?php } ?>
+				<?php seosight_render( $data_button ) ?>
             </div>
         </div>
         <?php

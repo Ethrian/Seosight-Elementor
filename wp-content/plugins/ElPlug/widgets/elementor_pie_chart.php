@@ -142,7 +142,7 @@ class Elementor_pie_chart extends \Elementor\Widget_Base {
 
         extract( $settings );
 
-        fw_print($percent);
+        fw_print($percent);                                                                                                                     //TODO: HERE!
         $element_attr .= 'data-value='. esc_attr( $percent['size']) / 100 .' ';
         $element_attr .= 'data-startcolor="' . esc_attr( $startcolor ) . '" ';
         $element_attr .= 'data-endcolor="' . esc_attr( $endcolor ) . '"';

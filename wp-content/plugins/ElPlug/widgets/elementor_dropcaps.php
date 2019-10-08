@@ -15,7 +15,7 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'general' ];
+		return [ 'theme-elements' ];
 	}
 
 	protected function _register_controls() {
@@ -55,6 +55,68 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'css',
+			[
+				'label'         => esc_html__( 'Dropcaps', 'seosight' ),
+				'tab'           => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+        );
+
+		$this->add_control(
+		        'color',
+                [
+                    'label' => esc_html__('Character color', 'seosight'),
+                    'type'  => \Elementor\Controls_Manager::COLOR,
+                    'scheme' =>
+                        [
+                            'type' => \Elementor\Scheme_Color::get_type(),
+                            'value' => \Elementor\Scheme_Color::COLOR_1,
+                        ],
+                    'selectors' =>
+                        [
+							'{{WRAPPER}} .dropcaps-text' => 'color: {{SCHEME}};'
+                        ]
+                ]
+        );
+
+		$this->add_control(
+		        'background-color',
+                [
+                    'label' => esc_html__('Background color', 'seosight'),
+                    'type'  => \Elementor\Controls_Manager::COLOR,
+					'scheme' =>
+						[
+							'type' => \Elementor\Scheme_Color::get_type(),
+							'value' => \Elementor\Scheme_Color::COLOR_1,
+						],
+					'selectors' =>
+						[
+							'{{WRAPPER}} .dropcaps-text' => 'background-color: {{SCHEME}};'
+						]
+                ]
+        );
+
+		$this->add_group_control(
+			'typography',
+			[
+				'name'      => 'content_typography',
+				'label'     => esc_html__( 'Character typography', 'seosight' ),
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .dropcaps-text',
+			]
+		);
+
+		$this->add_group_control(
+			'border',
+			[
+				'label'     => esc_html__( 'Character border', 'seosight' ),
+				'selector'  => '{{WRAPPER}} .dropcaps-text',
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	protected function render() {
@@ -62,7 +124,6 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         // $desc = $settings['dropcaps_desc'];
         // $style = $settings['dropcaps_style'];
-        $wrap_class	= apply_filters( 'kc-el-class', $settings );
 
         extract( $settings );
         
@@ -72,9 +133,9 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
         
         if( !empty( $check ) ){
             $ch = mb_substr($check, 0,1);
-            $pos = strpos($dropcaps_desc, $ch);
+//            $pos = strpos($dropcaps_desc, $ch);
             $str_re = '<span class="dropcaps-text">' . $ch .'</span>';
-            $dropcaps_desc = substr_replace($dropcaps_desc, $str_re, $pos, $pos+1);
+            $dropcaps_desc = substr_replace($dropcaps_desc, $str_re, 0, 1);
         } else {
             $dropcaps_desc = esc_html__('Dropcap: Text not found', 'seosight');
         }
@@ -86,27 +147,4 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
         <?php
 	}   
 
-    protected function _content_template() {
-        ?>
-        <#
-        var attr = {
-            desc: settings.dropcaps_desc,
-            style: settings.dropcaps_style
-        };
-
-        var check = attr.desc.replace(' \t\n\r\0\x0B', '');
-        if (check != '') {
-            var ch = check.substr(0, 1);
-            var pos = attr.desc.indexOf(ch);
-            var str_re = '<span class="dropcaps-text">' + ch + '</span>';
-        } else {
-            attr.desc = 'Dropcap: Text not found';
-        }
-        #>
-
-        <div class="first-letter--{{{style}}}">
-            {{{attr.desc}}}
-        </div>
-        <?php 
-    }
 }

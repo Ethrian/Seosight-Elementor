@@ -79,7 +79,10 @@ class elementor_icon extends \Elementor\Widget_Base {
 					'url'			=> '#',
 					'is_external'	=> false,
 					'nofollow'		=> false,
-				]
+				],
+                'condition'     => [
+                    'use_link'   => 'yes'
+                ]
 			]
 		);
 
