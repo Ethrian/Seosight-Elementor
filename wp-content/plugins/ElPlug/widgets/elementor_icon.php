@@ -290,7 +290,7 @@ class elementor_icon extends \Elementor\Widget_Base {
 		 <#if (has_link) {#>
     	 	<a href="{{{href}}}" target ="{{{target}}}" {{{rel}}}>
 		 <# } #>
-         		<span class="icon"><i class="{{attr.icon}}"></i></span>
+         		<span class="icon"><i class="{{attr.icon.value}}"></i></span>
          		{{{title_html}}}
 		 <#if (has_link) {#>
     	 	</a>

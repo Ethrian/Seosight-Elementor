@@ -523,7 +523,7 @@ class Elementor_button extends \Elementor\Widget_Base {
             <a {{{button_attr}}} class="btn {{{el_class}}}">                   
               <#if ( attr.show_icon == true ) { 
 		        	if (attr.lb_pos == 'left') {#>
-		        		<i class="{{attr.icon}}"></i> <span class="text">{{{attr.title}}}</span>
+		        		<i class="{{attr.icon.value}}"></i> <span class="text">{{{attr.title}}}</span>
 	        		<#} else {#>
 			        	<span class="text">{{{attr.title}}}</span> <i class="{{attr.icon}}"></i>
 			    <#    }

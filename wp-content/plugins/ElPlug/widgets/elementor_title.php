@@ -71,7 +71,8 @@ class Elementor_title extends \Elementor\Widget_Base {
 					'div'  			=> 'div',
 					'span' 			=> 'Span',
 					'p'    			=> 'P'
-				]
+				],
+                'default'       => 'h1'
 			]
 		);
 
@@ -337,7 +338,7 @@ class Elementor_title extends \Elementor\Widget_Base {
 		var el_class = 'crumina-module crumina-heading';
         var subtitle_html = '';
 
-		if (inline_link !== 'yes') el_class += attr.align;
+		if (inline_link != 'yes') el_class += ' ' + attr.align;
 
 		if (inline_link == 'yes') {
     		var href = 'href ="'+ attr.link.url +'"';
@@ -346,21 +347,24 @@ class Elementor_title extends \Elementor\Widget_Base {
 			var link_html = href + ' ' + target + ' ' + rel;
 		}
 
+
 		if ( attr.title_delim == 'yes' ) delim_html= '<div class="heading-decoration"><span class="first"></span><span class="second"></span></div>';
 
-		if (attr.post_title === 'yes') attr.title = document.getElementsByClassName('stunning-header-title');
+		if (attr.post_title === 'yes') attr.title = document.title.split(" | ")[1];
 
 		if (attr.subtitle.length) subtitle_html = '<div class="h5 heading-text">' + attr.subtitle + '</div>';
 
 		#>
  
 		<div class='{{el_class}}'>
-            <div class="title-text-wrap"></div>
+            <div class="title-text-wrap "></div>
             <{{{attr.type}}} > {{{attr.title}}} </{{{attr.type}}}>
            <a {{link_html}}> </a>
         </div>
 		{{{delim_html}}}
-		{{{subtitle_html}}}
+        <div class="{{attr.align}}">
+		    {{{subtitle_html}}}
+        </div>
 		</div>
 		<?php
 	}
