@@ -47,7 +47,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
                     'standard-centered-big' =>  'info-box-6.png',
                     'standard-hover'        =>  'info-box-7.png',
                 ],
-                'default'       => 'standard-nofloat'
+                'default'       => 'standard-bg'
 			]
         );
         
@@ -56,6 +56,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
             [
                 'label'         => esc_html__( 'Title', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
+                'default'       => 'Title'
             ]
         );
 
@@ -64,6 +65,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
             [
                 'label'         => esc_html__( 'Description', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXTAREA,
+                'default'       => 'some text...'
             ]
         );
 
@@ -98,8 +100,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
                 'type'          => \Elementor\Controls_Manager::ICONS,
                 'description'   => esc_html__( 'Select icon display in box', 'seosight' ),
                 'default'       => [
-					'value' => 'fas fa-star',
-					'library' => 'solid',
+					'value' => 'seosight-compass-1',
+					'library' => 'seosight',
 				],
 				'condition'     => ['media' => 'icon']
             ]
@@ -125,7 +127,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
             [
                 'label'         => esc_html__( 'Link title', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
-
+                'default'       => 'more...'
             ]
         );
 
@@ -165,7 +167,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
                     'btn--light-green'   => esc_html__( 'light green', 'seosight' ),
                     'btn--dark-blue'     => esc_html__( 'dark blue', 'seosight' ),
                 ],
-                'default'       => 'btn--gray',
+                'default'       => 'btn--dark',
 				'condition'     => ['is_button' => 'yes']
             ]
         );
@@ -221,7 +223,7 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 							'type' => \Elementor\Scheme_Color::get_type(),
 							'value' => \Elementor\Scheme_Color::COLOR_1,
 						],
-					'default'   => '#b77031',
+					'default'   => '#545454',
 
 					'selectors' =>
 						[
@@ -288,7 +290,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 					[
 						'{{WRAPPER}} .info-box-image i' => 'color: {{SCHEME}};'
 					],
-                'condition'     => ['media' => 'icon']
+                'condition'     => ['media' => 'icon'],
+                'default'       => '#dbc555'
 			]
 		);
 
@@ -306,7 +309,8 @@ class Elementor_info_box extends \Elementor\Widget_Base {
 				'selectors' =>
 					[
 						'{{WRAPPER}} .info-box-image' => 'background: {{SCHEME}};'
-					]
+					],
+                'default'   => '#444444'
 			]
 		);
 

@@ -46,6 +46,7 @@ class Elementor_team extends \Elementor\Widget_Base {
 			[
 				'label'         => esc_html__( 'Name', 'seosight' ),
 				'type'          => \Elementor\Controls_Manager::TEXT,
+                'default'       => 'Name'
 			]
         );
         
@@ -54,6 +55,7 @@ class Elementor_team extends \Elementor\Widget_Base {
             [
                 'label'         => esc_html__( 'Subtitle', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
+                'default'       => 'Role'
             ]
         );
 
@@ -182,7 +184,8 @@ class Elementor_team extends \Elementor\Widget_Base {
 				'selectors' =>
 					[
 						'{{WRAPPER}} .teammembers-item-name' => 'color: {{SCHEME}};'
-					]
+					],
+                'default'   => '#545454'
 			]
 		);
 
@@ -210,7 +213,8 @@ class Elementor_team extends \Elementor\Widget_Base {
 				'selectors' =>
 					[
 						'{{WRAPPER}} .teammembers-item-prof' => 'color: {{SCHEME}};'
-					]
+					],
+                'default'   => '#9e9e9e'
 			]
 		);
 

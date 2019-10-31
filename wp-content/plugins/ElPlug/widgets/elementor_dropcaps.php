@@ -34,7 +34,8 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
                 'label'         => esc_html__( 'Text Paragraph', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXTAREA,
                 'rows'          => 7,
-                'placeholder'   => esc_html__( 'Bla-bla-bla...', 'seosight' ),    
+                'placeholder'   => esc_html__( 'Bla-bla-bla...', 'seosight' ),
+                'default'       => 'S'
 			]
         );
         
@@ -49,7 +50,7 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
                     'dark-round'    => esc_html__( 'Rounded', 'seosight' ),
                     'primary'       => esc_html__( 'Simple', 'seosight' ),
                 ],
-                'default'       => 'squared',
+                'default'       => 'dark-round',
             ]
         );
 
@@ -76,7 +77,8 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
                     'selectors' =>
                         [
 							'{{WRAPPER}} .dropcaps-text' => 'color: {{SCHEME}};'
-                        ]
+                        ],
+                    'default'   => '#5b5b5b'
                 ]
         );
 
@@ -93,7 +95,8 @@ class Elementor_dropcaps extends \Elementor\Widget_Base {
 					'selectors' =>
 						[
 							'{{WRAPPER}} .dropcaps-text' => 'background-color: {{SCHEME}};'
-						]
+						],
+                    'default'   => '#96bc00'
                 ]
         );
 

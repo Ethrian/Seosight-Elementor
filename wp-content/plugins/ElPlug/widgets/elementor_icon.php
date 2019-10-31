@@ -39,8 +39,8 @@ class elementor_icon extends \Elementor\Widget_Base {
 				'type' 			=> \Elementor\Controls_Manager::ICONS,
 				'descrition' 	=> esc_html__( 'Display single icon', 'seosight' ),
 				'default' => [
-					'value' => 'fas fa-star',
-					'library' => 'solid',
+					'value' => 'seosight-bitcoin',
+					'library' => 'seosight',
 				],
 			]
 		);

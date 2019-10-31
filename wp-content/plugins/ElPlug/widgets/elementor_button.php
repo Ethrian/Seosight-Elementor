@@ -39,6 +39,7 @@ class Elementor_button extends \Elementor\Widget_Base {
 				'label'         => esc_html__( 'Title', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
                 'description'   => esc_html__( 'This is the text that appears on your button', 'seosight' ),
+                'default'       => 'Button'
 			]
         );
         
@@ -61,8 +62,8 @@ class Elementor_button extends \Elementor\Widget_Base {
                 'type'          => \Elementor\Controls_Manager::ICONS,
                 'description'   => esc_html__( 'Select icon for your button', 'seosight' ),
 				'default'       => [
-					'value' => 'fas fa-star',
-					'library' => 'solid',
+					'value' => 'seosight-eye',
+					'library' => 'seosight',
 				],
                 'condition'     => [
                         'show_icon' => 'yes'
@@ -86,6 +87,7 @@ class Elementor_button extends \Elementor\Widget_Base {
 						'icon'          => 'fa fa-align-right',
 					],
                 ],
+				'default'      => 'left',
 				'condition'     => [
 					'show_icon' => 'yes'
 				]
@@ -104,7 +106,7 @@ class Elementor_button extends \Elementor\Widget_Base {
                     'btn-medium'        => esc_html__( 'medium', 'seosight' ),
                     'btn-large'         => esc_html__( 'large', 'seosight' ),
                 ],
-                'default'       => 'btn-small',
+                'default'       => 'btn-medium',
             ]
         );
 
@@ -132,7 +134,7 @@ class Elementor_button extends \Elementor\Widget_Base {
                     'btn--light-green'   => esc_html__( 'light green', 'seosight' ),
                     'btn--dark-blue'     => esc_html__( 'dark blue', 'seosight' ),
                 ],
-                'default'       => 'btn--gray',
+                'default'       => 'btn--dark-gray',
             ]
         );
 
@@ -157,7 +159,7 @@ class Elementor_button extends \Elementor\Widget_Base {
                 'description'   => esc_html__( 'Show shadow when hovering over button?', 'seosight' ),
 				'label_on'		=> esc_html__('Yes', 'seosight' ),
 				'label_off'		=> esc_html__( 'No', 'seosight' ),
-                'default'       => 'no',
+                'default'       => 'yes',
                 'return_value'  => 'yes',    
             ]            
         );
@@ -170,7 +172,7 @@ class Elementor_button extends \Elementor\Widget_Base {
                 'description'   => esc_html__( 'How to arange semicircle?', 'seosight' ),
 				'label_on'		=> esc_html__('Right', 'seosight' ),
 				'label_off'		=> esc_html__( 'Left', 'seosight' ),
-                'default'       => 'Right',
+                'default'       => 'Left',
                 'return_value'  => '--right',    
             ]            
         );
@@ -195,7 +197,8 @@ class Elementor_button extends \Elementor\Widget_Base {
 						'title'         => esc_html__( 'Right', 'seosight' ),
 						'icon'          => 'fa fa-align-right',
 					],
-                ]
+                ],
+                'default'       => 'center'
             ]
         );
 
@@ -260,7 +263,8 @@ class Elementor_button extends \Elementor\Widget_Base {
                 'selectors' =>
                 [
                     '{{WRAPPER}} .btn' => 'color: {{SCHEME}};'
-                ]
+                ],
+                'default'   => '#ffffff'
             ]
         );
 
@@ -278,7 +282,8 @@ class Elementor_button extends \Elementor\Widget_Base {
                     'selectors' =>
                         [
                             '{{WRAPPER}} .btn' => 'background-color: {{SCHEME}};'                // TODO: SVG!!!
-                        ]
+                        ],
+                    'default'   => '#7c001f'
                 ]
         );
 

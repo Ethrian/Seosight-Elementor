@@ -56,6 +56,7 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
                 'label'         => esc_html__( 'Title', 'seosight' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
                 'description'   => esc_html__( 'Enter title for block', 'seosight'),
+                'default'       => 'Promotion'
             ]
         );
 
@@ -63,7 +64,8 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
             'desc',
             [
                 'label'         => esc_html__( 'Description', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::TEXTAREA
+                'type'          => \Elementor\Controls_Manager::TEXTAREA,
+				'default'       => 'Some text'
             ]
         );
 
@@ -86,7 +88,8 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
             'link_title',
             [
                 'label'         => esc_html__( 'Link title', 'seosight' ),
-                'type'          => \Elementor\Controls_Manager::TEXT
+                'type'          => \Elementor\Controls_Manager::TEXT,
+                'default'       => 'More...'
             ]
         );
 
@@ -98,7 +101,7 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
                 'descripton'    => esc_html__( 'Display link as button', 'seosight' ),
                 'label_on'		=> esc_html__( 'Yes', 'seosight' ),
 				'label_off'		=> esc_html__( 'No', 'seosight' ),
-                'default'       => 'No',
+                'default'       => 'Yes',
                 'return_value'  => 'yes',
             ]
         );
@@ -126,7 +129,7 @@ class Elementor_promo_block extends \Elementor\Widget_Base {
                     'btn--light-green'   => esc_html__( 'light green', 'seosight' ),
                     'btn--dark-blue'     => esc_html__( 'dark blue', 'seosight' ),
                 ],
-                'default'       => 'btn--gray'
+                'default'       => 'btn--dark-gray'
             ]
         );
 
